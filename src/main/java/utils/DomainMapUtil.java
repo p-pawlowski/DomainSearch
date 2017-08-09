@@ -12,8 +12,8 @@ public class DomainMapUtil {
 
 	public static Map<String, MutableInt> createDomainMap(List<Element> links) {
 		Map<String, MutableInt> domainMap = new HashMap<>();
-		Pattern pattern = Pattern
-				.compile("/{2}(www\\.)?((([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9])|([a-zA-Z0-9])\\.)+[a-zA-Z]{2,3})");
+		Pattern pattern = Pattern.compile(
+				"/{2}(www\\.)?(((([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9])|([a-zA-Z0-9]))\\.)+([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]))");
 		for (Element link : links) {
 			Matcher matcher = pattern.matcher(link.attr("href"));
 			if (matcher.find()) {
